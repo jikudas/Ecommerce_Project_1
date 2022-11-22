@@ -58,58 +58,81 @@
 <div class="cpy_">
    <p>© 2021 All Rights Reserved By <a href="https://html.design/">Free Html Templates</a></p>
 </div>
-      <!-- jQery -->
-      <script src="<?= baseurl . '/js/jquery-3.4.1.min.js'?>"></script>
-      <!-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script> -->
-      <!-- elevatezoom JS -->
-      <script type="text/javascript" src="https://cdn.rawgit.com/igorlino/elevatezoom-plus/1.1.6/src/jquery.ez-plus.js"></script>
-      <!-- popper js -->
-      <script src="<?= baseurl . '/js/popper.min.js'?>"></script>
-      <!-- bootstrap js -->
-      <script src="<?= baseurl . '/js/bootstrap.min.js'?>"></script>
-      <!-- bootstrap bundle js -->
-      <script src="<?= baseurl . '/js/bootstrap.bundle.min.js'?>"></script>
-      <!-- fontawesome js -->
-      <script src="<?= baseurl . '/js/all.min.js'?>"></script>
-      <!-- custom js -->
-      <script src="<?= baseurl . '/js/custom.js'?>"></script>
-      <!-- quantity JS -->
-      <script src="<?= baseurl . '/js/quantity.js'?>"></script>
-      <!-- zoom JS -->
-      <script src="<?= baseurl . '/js/zoom.js'?>"></script>
-      <!-- mediumish js -->
-      <script src="<?= baseurl . '/js/ie10-viewport-bug-workaround.js'?>"></script>
-      <!-- AOS JS -->
-      <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-      <script>
-         AOS.init();
-      </script>
-     
+   <!-- jQery -->
+   <script src="<?= baseurl . 'js/jquery-3.4.1.min.js'?>"></script>
+   <!-- elevatezoom JS -->
+   <script type="text/javascript" src="https://teeeyes.com/plugins/pan-zoom/Nzoom.min.js"></script>
+   <!-- popper js -->
+   <script src="<?= baseurl . 'js/popper.min.js'?>"></script>
+   <!-- bootstrap js -->
+   <script src="<?= baseurl . 'js/bootstrap.min.js'?>"></script>
+   <!-- bootstrap bundle js -->
+   <script src="<?= baseurl . 'js/bootstrap.bundle.min.js'?>"></script>
+   <!-- fontawesome js -->
+   <script src="<?= baseurl . 'js/all.min.js'?>"></script>
+   <!-- custom js -->
+   <script src="<?= baseurl . 'js/custom.js'?>"></script>
+   <!-- quantity JS -->
+   <script src="<?= baseurl . 'js/quantity.js'?>"></script>
+   <!-- mediumish js -->
+   <script src="<?= baseurl . 'js/ie10-viewport-bug-workaround.js'?>"></script>
+   <!-- app js -->
+
+   <!-- AOS JS -->
+   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+   <script>
+      AOS.init();
+   </script>
+   <script>
+   // Example starter JavaScript for disabling form submissions if there are invalid fields
+   (function() {
+      'use strict';
+
+      window.addEventListener('load', function() {
+         // Fetch all the forms we want to apply custom Bootstrap validation styles to
+         var forms = document.getElementsByClassName('needs-validation');
+
+         // Loop over them and prevent submission
+         var validation = Array.prototype.filter.call(forms, function(form) {
+         form.addEventListener('submit', function(event) {
+            if (form.checkValidity() === false) {
+               event.preventDefault();
+               event.stopPropagation();
+            }
+            form.classList.add('was-validated');
+         }, false);
+         });
+      }, false);
+   })();
+   </script>
+
+   <!-- Add to Cart Script -->
+   <script>
+      $(document).ready(function() {
+         $('.itemBtn').click(function(e) {
+            e.preventDefault();
+            const pid = '<?= $value->data->id; ?>';
+            const pname = $('.p_title').text();
+            const pprice = '<?= $value->data->price; ?>';
+            const pimage = '<?= $value->data->image; ?>';
+            
+            $.ajax({
+               url: baseurl + 'cart',
+               method: 'POST',
+               data: {pid:pid, pname:pname, pprice:pprice, pimage:pimage},
+               success:function(response) {
+                  // $('#message').html(response);
+               }
+            });
+         });
+      });
+   </script>
+   <!-- Add to Cart Script End -->
+
+   <!-- view cart quantity increase decrease script starts -->
+   <script>
       
-      <!-- Checkout Page Javascript -->
-      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-      <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-      <script>
-      // Example starter JavaScript for disabling form submissions if there are invalid fields
-      (function() {
-        'use strict';
-
-        window.addEventListener('load', function() {
-          // Fetch all the forms we want to apply custom Bootstrap validation styles to
-          var forms = document.getElementsByClassName('needs-validation');
-
-          // Loop over them and prevent submission
-          var validation = Array.prototype.filter.call(forms, function(form) {
-            form.addEventListener('submit', function(event) {
-              if (form.checkValidity() === false) {
-                event.preventDefault();
-                event.stopPropagation();
-              }
-              form.classList.add('was-validated');
-            }, false);
-          });
-        }, false);
-      })();
-    </script>
+   </script>
+   <!-- view cart quantity increase decrease script ends -->
    </body>
 </html>

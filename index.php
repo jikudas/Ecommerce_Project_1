@@ -31,29 +31,27 @@ $router->group("/Easyfie/Ecommerce_Project_1", function ($router) {
         require 'config.php';
         require('sections/header.php');
         require('sections/search.php');
-        // require('sections/generaloffer.php');
-        // require('sections/cartfix.php');
         require 'sections/footer.php';
     });
     
-    $router->get('/checkout', function () {
+    $router->post('/cart', function () {
         require 'config.php';
-        require('sections/header.php');
         require('sections/shopping_cart.php');
-        require 'sections/footer.php';
     });
 
-    $router->get('/shipping-address', function () {
+    $router->get('/view-cart', function () {
         require 'config.php';
         require('sections/header.php');
-        require('sections/shipping_address.php');
+        // echo "<pre>";   
+        // print_r($_SESSION);
+        // session_destroy();
+        require('sections/view_cart.php');
         require 'sections/footer.php';
     });
 
     $router->get('/products', function () {
         require 'config.php';
         require('sections/header.php');
-        // require('sections/products_title.php');
         require('sections/products.php');
         require 'sections/footer.php';
     });
@@ -69,7 +67,6 @@ $router->group("/Easyfie/Ecommerce_Project_1", function ($router) {
     $router->get('/offers', function () {
         require 'config.php';
         require('sections/header.php');
-        // require('sections/products_title.php');
         require('sections/offer_page.php');
         require 'sections/footer.php';
     });

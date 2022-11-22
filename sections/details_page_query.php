@@ -12,7 +12,6 @@ if (!empty($_SERVER['REQUEST_URI']) and strpos($_SERVER['REQUEST_URI'], "product
   } 
 
   $value  = $easyfie->SingleData($token, $type, $id);
-
   
 
   if (@$value->data->remark == '') {

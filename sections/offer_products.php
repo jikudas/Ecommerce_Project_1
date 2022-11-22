@@ -38,7 +38,7 @@ foreach ($offers->data as $key => $offer) {
                <div class="box">
                   <div class="option_container">
                      <div class="options">
-                        <a href="<?= baseurl . 'product-details/' . $offer->id?>" class="option2" name="$offer->id">
+                        <a href="<?= baseurl . 'product-details/' . $offer->id?>" class="option2" name="$offer->id" target="">
                         Check Details
                         </a>
                         <a href="" class="option1">

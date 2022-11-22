@@ -1,4 +1,6 @@
-<?php 
+<?php
+session_start();
+
    $generated_pages = $easyfie->generatedPages($token);
    // echo "<pre>";
    // print_r($generated_pages);
@@ -32,9 +34,6 @@
       <!-- Custom styles for this template -->
       <link href="<?= baseurl; ?>css/style.css" rel="stylesheet" />
 
-      <!-- responsive style -->
-      <!-- <link href="<?= baseurl; ?>css/responsive.css" rel="stylesheet" /> -->
-
       <!-- blog page template css -->
       <link href="<?= baseurl; ?>css/mediumish.css" rel="stylesheet">
 
@@ -47,14 +46,7 @@
    </head>
    <body >
 
-      <?php
-         if (isset($_SESSION['flash'])) {
-            $flash = $_SESSION['flash'];
-            echo '<script>alert("' . $flash . '");</script>';
-            unset($_SESSION['flash']);
-            session_destroy();
-         }
-      ?>
+
 
       <div class="hero_area">
 
@@ -100,9 +92,9 @@
                      <div class="shopping-cart-anim d-flex">
                         <div class="h5 pr-2 pt-1" ><i class="fa-solid fa-cart-shopping cart-icon"></i></div>
                         <div class="">
-                           <a href="<?= baseurl . 'checkout' ?>">
+                           <a href="<?= baseurl . 'view-cart' ?>">
                               <p class="text-uppercase m-0 menu-top-head">Shopping Cart :</p>
-                              <p class="m-0 text-muted"><span class="f-size-b-normal cart-items">0</span> items - <span class="f-size-b-normal">$0.00</span>
+                              <p class="m-0 text-muted"><span class="f-size-b-normal cart-items badge badge-danger">0</span> items - <span class="f-size-b-normal">$0.00</span>
                               </p>
                            </a>
                         </div>

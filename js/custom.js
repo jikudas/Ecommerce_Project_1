@@ -21,10 +21,11 @@
 // });
 
 // product details page zoom effect
-$("#zoom_01").ezPlus();
-$("#zoom_02").ezPlus();
-$("#zoom_03").ezPlus();
-$("#zoom_04").ezPlus();
+    $(".imageSwitch").click(function() {
+        var url = $(this).children("img").attr("src");
+        $("#NZoomImg").attr("src", url);
+
+    })
 
 // cart summary in the cart icon
 

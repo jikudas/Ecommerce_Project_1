@@ -15,6 +15,10 @@ $me = $easyfie->Me($token);
 
 $web_data =  $easyfie->WebData($token);
 
+// echo "<pre>";
+// print_r($web_data);
+// exit();
+
 $categories = $easyfie->getAllCategories($token);
 
 // echo "<pre>";

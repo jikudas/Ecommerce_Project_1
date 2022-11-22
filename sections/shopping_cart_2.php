@@ -1,3 +1,64 @@
+<?php
+session_start(); 
+
+
+
+
+if(isset($_POST['pid'])) {
+    // Set session variables
+    $cart = array(
+        'p_id' => $_POST['pid'],
+        'p_name' => $_POST['pname'],
+        'p_price' => $_POST['pprice'],
+        'p_image' => $_POST['pimage'],
+        'p_quantity' => 1
+    );
+
+
+    if(!empty($_SESSION['cart'])){
+
+        if(@$_SESSION['cart']['p_id']) {
+            if(in_array($_POST['pid'], $_SESSION['cart'])) {
+               $cart['p_quantity'] = $_SESSION['cart']['p_quantity'] + 1;
+               $push = $cart;
+
+            } else {
+                $old[] = $_SESSION['cart'];
+                $new[] = $cart;
+                $push = array_merge($old, $new);
+            }
+
+        } else {
+            $old = $_SESSION['cart'];
+            $new[] = $cart;
+            $push = array_merge($old, $new);
+        }
+
+        $_SESSION['cart'] = $push;
+
+    } else {
+        $_SESSION['cart'] = $cart;
+    }
+}
+?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <div class="container">
       <div class="row py-5">
         <div class="col-md-6 order-md-2 mb-4">

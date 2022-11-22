@@ -36,7 +36,7 @@ $latestProducts = $easyfie->ProductsOrBlogs($token, 'products', 9, 'desc');
                   <div class="box">
                      <div class="option_container">
                         <div class="options">
-                           <a href="<?= baseurl . 'product-details/' . $product->id?>" class="option2" name="$product->id">
+                           <a href="<?= baseurl . 'product-details/' . $product->id?>" class="option2" name="$product->id" target="">
                            Check Details
                            </a>
                            <a href="" class="option1" >
